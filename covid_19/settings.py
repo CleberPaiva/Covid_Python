@@ -66,8 +66,12 @@ WSGI_APPLICATION = 'covid_19.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'u883923978_ufsc_covid',
+        'USER': 'u883923978_ufsc_covid',
+        'PASSWORD': 'Covid2019',
+        'HOST': '31.170.167.204',
+        'PORT': '3306',
     }
 }
 
