@@ -134,21 +134,35 @@
   <p></p>
 
    <!-- Select Basic -->
-  <div class="control-group">
-    <label class="control-label">FAIXA DE IDADE</label>
-    <div class="controls">
-      <input type="text" id="faixa_idade" class="input-xlarge" name="faixa_idade"  required>
+<div class="control-group">
+        <label class="control-label">FAIXA DE IDADE</label>
+         <div class="controls">
+             <select id="faixa_idade" class="select" name="faixa_idade">
+                 <option disabled selected value> -- select an option -- </option>
+                <option value="ATÉ 9 ANOS">ATÉ 9 ANOS</option>
+                <option value="10 A 19 ANOS">10 A 19 ANOS</option>
+                <option value="20 A 29 ANOS">20 A 29 ANOS</option>
+                <option value="30 A 39 ANOS">30 A 39 ANOS</option>
+                <option value="40 A 49 ANOS">40 A 49 ANOS</option>
+                <option value="50 A 59 ANOS">50 A 59 ANOS</option>
+                <option value="60 A 69 ANOS">60 A 69 ANOS</option>
+                <option value="70 A 79 ANOS">70 A 79 ANOS</option>
+                <option value="80 A 89 ANOS">80 A 89 ANOS</option>
+                <option value="90 ANOS OU MAIS">90 ANOS OU MAIS</option>
+             </select>
+         </div>
     </div>
-  </div>
   <p></p>
 
      <!-- Select Basic -->
-  <div class="control-group">
-    <label class="control-label">SEXO</label>
-    <div class="controls">
-      <input type="text" id="sexo" class="input-xlarge" name="sexo"  required>
+<div class="control-group">
+        <label class="control-label">SEXO</label>
+         <div class="controls">
+            <input type="radio" id="sexo" name="sexo" value="M">Masculino<br>
+            <input type="radio" id="sexo" name="sexo" value="F">Feminino<br>
+            <input type="radio" id="sexo" name="sexo" value="O">Outros<br>
+         </div>
     </div>
-  </div>
   <p></p>
 
      <!-- Select Basic -->

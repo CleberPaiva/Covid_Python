@@ -30,7 +30,7 @@ class RelatorioCreate(CreateView):
 
 def relatorio_list(request):
     relatorio_list = Relatorio.objects.order_by("-data_notificacao")
-    paginator = Paginator(relatorio_list, 5000)
+    paginator = Paginator(relatorio_list, 10001)
 
     page = request.GET.get('page')
     relatorios = paginator.get_page(page)
