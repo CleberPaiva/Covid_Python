@@ -4,9 +4,9 @@ from django.urls import reverse
 
 
 SEXO_CHOICES = (
-    ('M', 'Masculino'),
-    ('F', 'Feminino'),
-    ('O', 'Outros')
+    ('M', 'MASCULINO'),
+    ('F', 'FEMININO'),
+    ('O', 'OUTROS')
 )
 
 FAIXA_IDADE = (
@@ -22,6 +22,29 @@ FAIXA_IDADE = (
     ('90 ANOS OU MAIS', '90 ANOS OU MAIS')
 )
 
+COR_CHOICES = (
+    ('amarela', 'AMARELA'),
+    ('branca', 'BRANCA'),
+    ('indigena', 'INDIGENA'),
+    ('naoinformada', 'NAO INFORMADA'),
+    ('parda', 'PARDA'),
+    ('preta', 'PRETA')
+)
+
+TESTE_CHOICES = (
+    ('bassal', 'BASALL - Basall'),
+    ('bassalkit', 'BASALL - Kit de teste COVID-19'),
+    ('ecodig', 'ECO- Eco dignóstic'),
+    ('ecocovid', 'ECO DIAGNÓSTICA - COVID-19 IgG/IgM Combo ECO Teste'),
+    ('imuno', 'IMUNOCROMATOGRÁFICO DE FLUXO LATERAL RÁPIDO COVID1 - BASALL'),
+    ('ivd', 'IVD - Imuno-RÁPIDO COVID - 19 IgG/IgM'),
+    ('lmg', 'LMG - kit de teste covid19 basall'),
+    ('lasers', 'LMG LASERS - BASALL'),
+    ('pcr', 'RT-PCR'),
+    ('rapido', 'TESTE RÁPIDO - ANTÍGENO'),
+    ('anticorpo', 'TESTE RÁPIDO - ANTICORPO'),
+    ('informado', 'NÃO INFORMADO')
+)
 
 class Relatorio(models.Model):
     data_notificacao = models.CharField(max_length=30, verbose_name='DATA DA NOTIFICAÇÃO')
@@ -30,12 +53,12 @@ class Relatorio(models.Model):
     data_obito = models.CharField(max_length=30, verbose_name='DATA DE ÓBITO')
     data_nascimento = models.CharField(max_length=30, verbose_name='DATA DE NASCIMENTO')
     faixa_idade = models.CharField(max_length=30, choices=FAIXA_IDADE, verbose_name='FAIXA DE IDADE')
-    sexo = models.CharField(max_length=1, choices=SEXO_CHOICES, verbose_name='SEXO')
-    raca = models.CharField(max_length=30, verbose_name='RAÇA')
+    sexo = models.CharField(max_length=15, choices=SEXO_CHOICES, verbose_name='SEXO')
+    raca = models.CharField(max_length=30,choices=COR_CHOICES, verbose_name='RAÇA')
     bairro = models.CharField(max_length=30, verbose_name='BAIRRO')
     municipio_residencia = models.CharField(max_length=30, verbose_name='MUNICIPIO DA RESIDÊNCIA')
     centro_saude = models.CharField(max_length=30, verbose_name='CENTRO DE SAÚDE')
-    tipo_teste = models.CharField(max_length=30, verbose_name='TIPO DE TESTE')
+    tipo_teste = models.CharField(max_length=30,choices=TESTE_CHOICES, verbose_name='TIPO DE TESTE')
     dor_garganta = models.CharField(max_length=30, verbose_name='DOR DE GARGANTA')
     dispneia = models.CharField(max_length=30, verbose_name='DISPINÉIA')
     febre = models.CharField(max_length=30, verbose_name='FEBRE')

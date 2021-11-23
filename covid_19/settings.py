@@ -14,7 +14,7 @@ SECRET_KEY = 'django-insecure-==q%we6tpkdtm@$*etw$pjox(b3aa7!_0rgydm3dh6+tbu8)8c
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -45,7 +45,7 @@ ROOT_URLCONF = 'covid_19.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ["templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -117,6 +117,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, "/static/")
 MEDIA_ROOT = "{}/media".format(BASE_DIR)
 
 MEDIA_URL = '/media/'
+
+
+
 
 
 

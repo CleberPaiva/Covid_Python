@@ -1,307 +1,474 @@
-
 {% load static %}
 
-
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv=”content-type” content="text/html;" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="keywords" content="covid_19" />
-    <title>COVID_19</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/fontawesome.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/brands.min.css"> <!-- importação de icones no font awesome -->
+    <link rel="shortcut icon" href="/image/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <title>Cadastro Dados Covid</title>
+    <style>
+                    *{
+                        margin: 0;
+                        padding: 0;
+                    }
 
-	<!-- BOOTSTRAP -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-    <link rel= "stylesheet" href= "https://maxcdn.Bootstrapcdn.com/Bootstrap/3.3.2/css/Bootstrap-theme.min.css" >
+                    .container{
+                        background-color: #02044A;
+                        color: #FFF;
+                        min-height: 100vh;
+                    }
 
-    <!-- ESTILOS PARA ESTA PÁGINA -->
-    <!-- Nesse caso, este estilo é apenas para inserir imagens -->
-	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+                    .area{
+                        margin: auto;
+                        max-width: 980px;
+                        min-height: 100vh;
+                        display: flex;
+                        flex-direction: column;
+                    }
+
+                    .steps{
+                        flex: 1;
+                        display: flex;
+                    }
+
+                    aside{
+                        flex: 1;
+                        display: flex;
+                    }
+
+                    main{
+                        flex: 1;
+                        padding-left: 40px;
+                        padding-top: 40px;
+                        padding-bottom: 20px;
+                    }
+
+                    header{
+                        padding: 25px 0;
+                        border-bottom: 1px solid #16195C;
+
+                    }
 
 
-    <!-- JAVASCRIPT E JQUERY -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+                    h1{
+                        margin: 0;
+                        padding: 0;
+                        font-size: 28px;
+                        margin-bottom: 5px;
+                    }
+
+                    p{
+                        font-size: 14px;
+                        color: #B8B8D4;
+                    }
+
+                    hr{
+                        height: 0px;
+                        border-bottom: 1px;
+                        background-color: #16195c;
+                        margin: 30px 0;
+                    }
+
+                    label{
+                        font-size: 13px;
+                    }
+
+                    label input{
+                        display: block;
+                        margin-top: 5px;
+                        margin-bottom: 15px;
+                        box-sizing: border-box;
+                        width: 100%;
+                        padding: 20px 10px;
+                        border: 2px solid #24cd89;
+                        border-radius: 10px;
+                        color: #FFF;
+                        outline: 0;
+                        font-size: 15px;
+                        background-color: #02044A;
+                    }
+
+                    button{
+                        background-color: #25cd89;
+                        color: #FFF;
+                        font-size: 14px;
+                        font-weight: bold;
+                        padding: 20px 40px;
+                        border: 0;
+                        border-radius: 30px;
+                        cursor: pointer;
+                        margin-top: 30px;
+                    }
+
+                    .input{
+                        display: block;
+                        margin-top: 5px;
+                        margin-bottom: 15px;
+                        box-sizing: border-box;
+                        width: 100%;
+                        padding: 20px 10px;
+                        border: 2px solid #24cd89;
+                        border-radius: 10px;
+                        color: #FFF;
+                        outline: 0;
+                        font-size: 15px;
+                        background-color: #02044A;
+
+                    }
+                    .inputdt{
+                        background: none;
+                        border:none;
+                        outline: none;
+                        color: #000;
+                        font-size: 15px;
+                        width: 100%;
+                        letter-spacing: 2px;
+                        outline: 0;
+                        filter: invert(100%);
+                    }
+
+                    input[list]{
+                        display: block;
+                        background: none;
+                        border:none;
+                        outline: none;
+                        color: #000;
+                        font-size: 15px;
+                        width: 100%;
+                        letter-spacing: 2px;
+                        outline: 0;
+                        filter: invert(100%);
+                    }
+
+                    footer {
+
+                        background-color: #14004d;
+                        color: white;
+                        padding: 50px;
+                        box-sizing: border-box;
+                        display: block;
+                        grid-template-columns: auto auto;
+                        align-items: center;
+                        text-align: center;
+                        border-top: 1px solid #16195C;
+                      }
+
+                      .nome{
+                        margin-right: 15px;
+                      }
+
+                      .footer_rede_social{
+                        text-align: center;
+                        padding: 15px;
+                      }
+
+                      .footer_rede_social a:visited{
+                        color: #ccc;
+                      }
+
+                      .footer_rede_social a:link{
+                        color: white;
+                        padding: 10px 12px;
+                        text-decoration: none;
+                        margin-bottom: 0;
+                        text-align: center;
+                      }
+
+                      /*sidebar*/
+                    .sidebarItem {
+                        margin: 30px 0;
+                        cursor: pointer;
+                    }
+                    .sidebarItem a{
+                            display: flex;
+                            align-items: center;
+                            text-decoration: none;
+                    }
+
+                    .info{
+                        flex: 1;
+                        margin-right: 20px;
+                    }
+
+                    .titulo{
+                        text-align: right;
+                        font-weight: bold;
+                        margin-bottom: 5px;
+                        font-size: 15px;
+                        color: #FFF;
+                    }
+
+                    .descricao{
+                        text-align: right;
+                        font-size: 13px;
+                        color: #B8B8D4;
+                    }
+
+                    .icone{
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 50%;
+                        background-color: #494A7C; /*se ativo '#25CD89'*/
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+
+                    img{
+                        /*fill: white;*/
+                        height:24px;
+                        width:24px;
+                    }
+
+                    .ponto{
+                        width: 6px;
+                        height: 6px;
+                        border: 3px solid #494A7C;
+                        border-radius: 50%;
+                        margin-left: 30px;
+                        margin-right: -6px;
+
+                    }
+
+    </style>
 </head>
-
 <body>
-    <div class="page">
-         <div class="header">
-            <a href="#menu"></a>
-         </div>
-         <div class="content">
-            <p><strong></strong><br />
-            </p>
-         </div>
-      </div>
+    <div class="container">
+        <div class="area">
+            <header>
+                <h1>Cadastro de dados COVID-19 de Florianópolis</h1>
+                <p>Preencha o cadastro abaixo com os dados das notificações de casos de suspeitos de COVID-19 em Florianópolis</p>
+            </header>
+            <div class="steps">
+                <aside>
+                    <div class="sidebar">
+                        <div class="sidebarItem" ><a href="/">
+                            <div class="info">
+                                <div class="titulo">Home</div>
+                                <div class="descricao">App COVID-19</div>
+                            </div>
+                            <div class="icone"><img src="/static/image/home-branco.png" /></div>
+                            <div class="ponto" background-color="#25CD89"></div>
+                        </a>
+                        </div>
+                        <div class="sidebarItem" ><a href="/relatorio/novo">
+                            <div class="info">
+                                <div class="titulo">Cadastrar</div>
+                                <div class="descricao">Realizar cadastro de notificação.</div>
+                            </div>
+                            <div class="icone"><img src="/static/image/cadastrar.png" /> </div>
+                            <div class="ponto" background-color="#25CD89"></div>
+                        </a>
+                        </div>
+                        <div class="sidebarItem" ><a href="/relatorio/list">
+                            <div class="info">
+                                <div class="titulo">Pesquisar</div>
+                                <div class="descricao">Realizar pesquisa das notificações.</div>
+                            </div>
+                            <div class="icone"><img src="/static/image/pesquisar.png" /></div>
+                            <div class="ponto"></div>
+                        </a>
+                        </div>
+                        <div class="sidebarItem" ><a href="/relatorio/csv">
+                            <div class="info">
+                                <div class="titulo">Upload</div>
+                                <div class="descricao">Realizar o upload de arquivo em csv.</div>
+                            </div>
+                            <div class="icone"><img src="/static/image/upload-fundo.png" /></div>
+                            <div class="ponto"></div>
+                        </a>
+                        </div>
+                    </div>
+                </aside>
+                <main>
+                    <h1>Cadastro de paciente</h1>
+                    <p>Preencha os campos abaixo com os dados do paciente:</p>
 
-<!-- INÍCIO DO MENU SUPERIOR -->
-<!--<img src="/static/image/Logo banner 150.jpg" width="152" height="42" alt="">-->
-	<div>
-	<nav class="navbar navbar-expand-lg navbar-light fixed-top">
-		<div class="container px-4 px-lg-5">
-            <a class="navbar-brand mb-0 h1" href="{% url 'home' %}"><strong>COVID_19</a>
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#links-menu" style="background-color: white;">
-					<i class="material-icons">menu</i>
-				</button>
-			</div>
-			<nav id="links-menu" class="collapse navbar-collapse">
-				<ul class="nav navbar-nav navbar-right">
-					<li><a class="nav-link" href="{% url 'home' %}">Inicío<span class="sr-only">(current)</span></a></li>
-                    <li><a href="/relatorio/list">Listagem</a></li>
-                    <li><a href="/relatorio/novo">Novo</a></li>
-                    <li><a href="/relatorio/csv">Upload</a></li>
-				</ul>
-			</nav>
-		</div>
-	</nav>
-    </div>
+                    <hr>
 
-<!-- FIM DO MENU SUPERIOR -->
+                    <form action="">
 
-        <div class="container">
-            <div class="content">
-                <p><strong></strong><br />
-                </p>
-             </div>
-            <p>
+                       <label>Data de nascimento:</label>
+                       <div class="input">
+                            <input type="date" name="data_nascimento" id="data_nascimento" class="inputdt" required/>
+                       </div>
+                       <label>Data da notificação:</label>
+                       <div class="input">
+                            <input type="date" name="data_notificacao" id="data_notificacao" class="inputdt" required/>
+                       </div>
+                       <label>Data do teste:</label>
+                       <div class="input">
+                            <input type="date" name="data_teste" id="data_teste" class="inputdt" required/>
+                       </div>
+                       <label>Data do óbito:</label>
+                       <div class="input">
+                            <input type="date" name="data_obito" id="data_obito" class="inputdt" />
+                       </div>
+                       <label>Data primeiros sintomas:</label>
+                       <div class="input">
+                            <input type="date" name="data_primeiros_sintomas" id="data_primeiros_sintomas" class="inputdt" required/>
+                       </div>
 
-            </p>
-            <p>
-
-            </p>
-
-<form method="post" enctype="multipart/form-data">
-
-    {% csrf_token %}
-
-<legend>NOVO CADASTRO</legend>
-
-  <!-- Data -->
-  <div class="control-group">
-    <label class="control-label">DATA DA NOTIFICAÇÃO</label>
-    <div class="controls">
-      <input id="data_notificacao" name="data_notificacao" type="date" placeholder="Insira a data" class="input-xlarge" required>
-      <p class="help-block"></p>
-    </div>
-  </div>
-  <p></p>
-
-    <!-- Data -->
-  <div class="control-group">
-    <label class="control-label">DATA PRIMEIROS SINTOMAS</label>
-    <div class="controls">
-      <input id="data_primeiros_sintomas" name="data_primeiros_sintomas" type="date" placeholder="Insira a data" class="input-xlarge" required>
-      <p class="help-block"></p>
-    </div>
-  </div>
-  <p></p>
-
-    <!-- Data -->
-  <div class="control-group">
-    <label class="control-label">DATA DO TESTE</label>
-    <div class="controls">
-      <input id="data_teste" name="data_teste" type="date" placeholder="Insira a data" class="input-xlarge" required>
-      <p class="help-block"></p>
-    </div>
-  </div>
-  <p></p>
-
-    <!-- Data -->
-  <div class="control-group">
-    <label class="control-label">DATA ÓBITO</label>
-    <div class="controls">
-      <input id="data_obito" name="data_obito" type="date" placeholder="Insira a data" class="input-xlarge">
-      <p class="help-block"></p>
-    </div>
-  </div>
-  <p></p>
-
-    <!-- Data -->
-  <div class="control-group">
-    <label class="control-label">DATA DE NASCIMENTO</label>
-    <div class="controls">
-      <input id="data_nascimento" name="data_nascimento" type="date" placeholder="Insira a data" class="input-xlarge" required>
-      <p class="help-block"></p>
-    </div>
-  </div>
-  <p></p>
-
-   <!-- Select Basic -->
-<div class="control-group">
-        <label class="control-label">FAIXA DE IDADE</label>
-         <div class="controls">
-             <select id="faixa_idade" class="select" name="faixa_idade">
-                 <option disabled selected value> -- select an option -- </option>
-                <option value="ATÉ 9 ANOS">ATÉ 9 ANOS</option>
-                <option value="10 A 19 ANOS">10 A 19 ANOS</option>
-                <option value="20 A 29 ANOS">20 A 29 ANOS</option>
-                <option value="30 A 39 ANOS">30 A 39 ANOS</option>
-                <option value="40 A 49 ANOS">40 A 49 ANOS</option>
-                <option value="50 A 59 ANOS">50 A 59 ANOS</option>
-                <option value="60 A 69 ANOS">60 A 69 ANOS</option>
-                <option value="70 A 79 ANOS">70 A 79 ANOS</option>
-                <option value="80 A 89 ANOS">80 A 89 ANOS</option>
-                <option value="90 ANOS OU MAIS">90 ANOS OU MAIS</option>
-             </select>
-         </div>
-    </div>
-  <p></p>
-
-     <!-- Select Basic -->
-<div class="control-group">
-        <label class="control-label">SEXO</label>
-         <div class="controls">
-            <input type="radio" id="sexo" name="sexo" value="M">Masculino<br>
-            <input type="radio" id="sexo" name="sexo" value="F">Feminino<br>
-            <input type="radio" id="sexo" name="sexo" value="O">Outros<br>
-         </div>
-    </div>
-  <p></p>
-
-     <!-- Select Basic -->
-  <div class="control-group">
-    <label class="control-label">RAÇA</label>
-    <div class="controls">
-      <input type="text" id="raca" class="input-xlarge" name="raca"  required>
-    </div>
-  </div>
-  <p></p>
-
-     <!-- Select Basic -->
-  <div class="control-group">
-    <label class="control-label">BAIRRO</label>
-    <div class="controls">
-      <input type="text" id="bairro" class="input-xlarge" name="bairro"  required>
-    </div>
-  </div>
-  <p></p>
-
-     <!-- Select Basic -->
-  <div class="control-group">
-    <label class="control-label">MUNICIPIO DE RESIDÊNCIA</label>
-    <div class="controls">
-      <input type="text" id="municipio_residencia" class="input-xlarge" name="municipio_residencia"  required>
-    </div>
-  </div>
-  <p></p>
-
-     <!-- Select Basic -->
-  <div class="control-group">
-    <label class="control-label">CENTRO DE SAÚDE</label>
-    <div class="controls">
-      <input type="text" id="centro_saude" class="input-xlarge" name="centro_saude"  required>
-    </div>
-  </div>
-  <p></p>
-
-     <!-- Select Basic -->
-  <div class="control-group">
-    <label class="control-label">TIPO DE TESTE</label>
-    <div class="controls">
-      <input type="text" id="tipo_teste" class="input-xlarge" name="tipo_teste"  required>
-    </div>
-  </div>
-  <p></p>
-
-     <!-- Select Basic -->
-  <div class="control-group">
-    <label for="dor_garganta">DOR DE GARGANTA</label>
-      <div>
-    <div class="controls">
-      <input type="text" id="dor_garganta" class="input-xlarge" name="dor_garganta"  required>
-    </div>
-    </div>
-
-  <p></p>
-
-     <!-- Select Basic -->
-  <div class="control-group">
-    <label class="control-label">DISPINÉIA</label>
-    <div class="controls">
-      <input type="text" id="dispneia" class="input-xlarge" name="dispneia"  required>
-    </div>
-  </div>
-  <p></p>
-
-     <!-- Select Basic -->
-  <div class="control-group">
-    <label class="control-label">FEBRE</label>
-    <div class="controls">
-      <input type="text" id="febre" class="input-xlarge" name="febre"  required>
-    </div>
-  </div>
-  <p></p>
-
-     <!-- Select Basic -->
-  <div class="control-group">
-    <label class="control-label">TOSSE</label>
-    <div class="controls">
-      <input type="text" id="tosse" class="input-xlarge" name="tosse"  required>
-    </div>
-  </div>
-  <p></p>
-
-     <!-- Select Basic -->
-  <div class="control-group">
-    <label class="control-label">ÓBITO</label>
-    <div class="controls">
-      <input type="text" id="obito" class="input-xlarge" name="obito">
-    </div>
-  </div>
-  <p></p>
-
-     <!-- Select Basic -->
-  <div class="control-group">
-    <label class="control-label">INTERNAÇÃO EM UTI</label>
-    <div class="controls">
-      <input type="text" id="internado_uti" class="input-xlarge" name="internado_uti"  required>
-    </div>
-  </div>
-  <p></p>
+                       <label for="">Faixa etária: </label>
+                       <div class="input">
+                          <select id="faixa_idade" class="select" name="faixa_idade">
+                                <option disabled selected value> -- Selecione uma opção -- </option>
+                                <option value="ATÉ 9 ANOS">ATÉ 9 ANOS</option>
+                                <option value="10 A 19 ANOS">10 A 19 ANOS</option>
+                                <option value="20 A 29 ANOS">20 A 29 ANOS</option>
+                                <option value="30 A 39 ANOS">30 A 39 ANOS</option>
+                                <option value="40 A 49 ANOS">40 A 49 ANOS</option>
+                                <option value="50 A 59 ANOS">50 A 59 ANOS</option>
+                                <option value="60 A 69 ANOS">60 A 69 ANOS</option>
+                                <option value="70 A 79 ANOS">70 A 79 ANOS</option>
+                                <option value="80 A 89 ANOS">80 A 89 ANOS</option>
+                                <option value="90 ANOS OU MAIS">90 ANOS OU MAIS</option>
+                         </select>
+                       </div>
 
 
+                    <label for="">Sexo: </label>
+                    <div class="input">
+                        <input type="radio" id="sexo" name="sexo" value="feminino" requi/>
+                        <label for="feminino">Feminino</label>
+                        <input type="radio" id="sexo" name="sexo" value="masculino" requi/>
+                        <label for="masculino">Masculino</label>
+                        <input type="radio" id="sexo" name="sexo" value="outro" requi/>
+                        <label for="outro">Outro</label>
+                    </div>
 
+                    <label for="">Cor: </label>
+                    <div class="input">
+                        <input type="radio" id="raca" name="raca" value="amarela" requi/>
+                        <label for="amarela">Amarela</label>
+                        <input type="radio" id="raca" name="raca" value="branca" requi/>
+                        <label for="branca">Branca</label>
+                        <input type="radio" id="raca" name="raca" value="indigena" requi/>
+                        <label for="indigena">Indígena</label>
+                        <input type="radio" id="raca" name="raca" value="naoinformada" requi/>
+                        <label for="naoinformada">Não Informada</label>
+                        <input type="radio" id="raca" name="raca" value="parda" requi/>
+                        <label for="parda">Parda</label>
+                        <input type="radio" id="raca" name="raca" value="preta" requi/>
+                        <label for="preta">Preta</label>
+                    </div>
 
-    <p></p>
-    <button>Salvar</button>
-  </div>
-    <p></p>
-  <div class="preview">
+                    <label for="cidades">Cidade:</label>
+                    <div class="input">
+                        <input type="text" id="municipio_residencia" class="input-xlarge" name="municipio_residencia"  required>
+                     </div>
 
-  </div>
-    <p></p>
-  <div class="preview">
+                    <label for="bairros">Bairro:</label>
+                    <div class="input">
+                        <input type="text" id="bairro" class="input-xlarge" name="bairro"  required>
+                    </div>
+                    <label for="censaude">Centro de saúde:</label>
+                    <div class="input">
+                        <input type="text" id="centro_saude" class="input-xlarge" name="centro_saude"  required>
+                    </div>
+                    <label for="tipoteste">Tipo de teste:</label>
+                    <div class="input">
+                        <input list="tipo_teste" />
+                        <datalist id="tipo_teste">
+                            <option value="bassal">
+                            <option value="bassalkit">
+                            <option value="ecodig">
+                            <option value="ecocovid">
+                            <option value="imuno">
+                            <option value="ivd">
+                            <option value="lmg">
+                            <option value="lasers">
+                            <option value="pcr">
+                            <option value="rapido">
+                            <option value="anticorpo">
+                            <option value="informado">
+                        </datalist>
+                    </div>
+                    <label for="">Dor de garganta: </label>
+                    <div class="input">
+                        <input type="radio" id="dor_garganta" name="dor_garganta" value="sim" requi/>
+                        <label for="dgsim">Sim</label>
+                        <input type="radio" id="dor_garganta" name="dor_garganta" value="nao" requi/>
+                        <label for="dgnao">Não</label>
+                    </div>
+                    <label for="">Dispnéia: </label>
+                    <div class="input">
+                        <input type="radio" id="dispneia" name="dispneia" value="sim" requi/>
+                        <label for="dsim">Sim</label>
+                        <input type="radio" id="dispneia" name="dispneia" value="nao" requi/>
+                        <label for="dnao">Não</label>
+                    </div>
+                    <label for="">Febre: </label>
+                    <div class="input">
+                        <input type="radio" id="febre" name="febre" value="sim" requi/>
+                        <label for="fsim">Sim</label>
+                        <input type="radio" id="febre" name="febre" value="nao" requi/>
+                        <label for="fnao">Não</label>
+                    </div>
 
-  </div>
-    <p>.</p>
-  <div class="preview">
+                    <label for="">Tosse: </label>
+                    <div class="input">
+                        <input type="radio" id="tosse" name="tosse" value="sim" requi/>
+                        <label for="tsim">Sim</label>
+                        <input type="radio" id="tosse" name="tosse" value="nao" requi/>
+                        <label for="tnao">Não</label>
+                    </div>
+                    <label for="">Óbito: </label>
+                    <div class="input">
+                        <input type="radio" id="obito" name="obito" value="sim" requi/>
+                        <label for="osim">Sim</label>
+                        <input type="radio" id="obito" name="obito" value="nao" requi/>
+                        <label for="onao">Não</label>
+                    </div>
+                    <label for="">UTI: </label>
+                    <div class="input">
+                        <input type="radio" id="internado_uti" name="internado_uti" value="sim" requi/>
+                        <label for="usim">Sim</label>
+                        <input type="radio" id="internado_uti" name="internado_uti" value="nao" requi/>
+                        <label for="unao">Não</label>
+                    </div>
 
-  </div>
-    <p>.</p>
-</form>
-
-
-         </div>
-
-    <div class="navbar navbar-default navbar-fixed-bottom">
-        <div class="container">
-              <p class="navbar-text pull-right">© 2021 - Site Built By Marcos & Paiva.</p>
+                    <button>Finalizar</button>
+                </form>
+                </main>
+            </div>
         </div>
+
     </div>
-
 </body>
+<footer>
+    <div class="nome">
+        &copy; 2021 - Cléber Paiva
+    </div>
+    <div class="footer_rede_social">
+        <a href="https://www.linkedin.com/in/cl%C3%A9ber-paiva-48988016a/" target="_blank">
+            <i class="fab fa-linkedin fa-lg"></i>
+        </a>
+        <a href="https://api.whatsapp.com/send/?phone=5548984361437&text=Ol%C3%A1%2C+meu+amigo%21&app_absent=0" target="_blank">
+             <i class="fab fa-whatsapp fa-lg"></i>
+        </a>
+        <a href="https://github.com/CleberPaiva" target="_blank">
+            <i class="fab fa-github fa-lg"></i>
+        </a>
+    </div>
+    <div class="nome">
+        &copy; 2021 - Marcos Michel Luciano
+    </div>
+    <div class="footer_rede_social">
+        <a href="https://www.linkedin.com/in/marcosmichelluciano/" target="_blank">
+            <i class="fab fa-linkedin fa-lg"></i>
+        </a>
+        <a href="https://bit.ly/2ShS136" target="_blank">
+             <i class="fab fa-whatsapp fa-lg"></i>
+        </a>
+        <a href="https://github.com/michelluciano" target="_blank">
+            <i class="fab fa-github fa-lg"></i>
+        </a>
+    </div>
+</footer>
 </html>
-
-
-
-
-
-
-

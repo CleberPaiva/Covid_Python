@@ -1,107 +1,335 @@
 {% load static %}
 
-<!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv=”content-type” content="text/html;" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="keywords" content="covid_19" />
-    <title>COVID_19</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/fontawesome.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/brands.min.css"> <!-- importação de icones no font awesome -->
+    <link rel="shortcut icon" href="image/coronavirus.png" type="image/x-icon">
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <title>Cadastro Dados Covid-19</title>
+               <style>
+                    *{
+                        margin: 0;
+                        padding: 0;
+                    }
 
-	<!-- BOOTSTRAP -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-    <link rel= "stylesheet" href= "https://maxcdn.Bootstrapcdn.com/Bootstrap/3.3.2/css/Bootstrap-theme.min.css" >
+                    .container{
+                        background-color: #02044A;
+                        color: #FFF;
+                        min-height: 100vh;
+                    }
 
-    <!-- ESTILOS PARA ESTA PÁGINA -->
-    <!-- Nesse caso, este estilo é apenas para inserir imagens -->
-	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+                    .area{
+                        margin: auto;
+                        max-width: 980px;
+                        min-height: 100vh;
+                        display: flex;
+                        flex-direction: column;
+                    }
+
+                    .steps{
+                        flex: 1;
+                        display: flex;
+                    }
+
+                    aside{
+                        flex: 1;
+                        display: flex;
+                    }
+
+                    main{
+                        flex: 1;
+                        padding-left: 40px;
+                        padding-top: 40px;
+                        padding-bottom: 20px;
+                    }
+
+                    header{
+                        padding: 25px 0;
+                        border-bottom: 1px solid #16195C;
+
+                    }
 
 
-    <!-- JAVASCRIPT E JQUERY -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+                    h1{
+                        margin: 0;
+                        padding: 0;
+                        font-size: 28px;
+                        margin-bottom: 5px;
+                    }
+
+                    p{
+                        font-size: 14px;
+                        color: #B8B8D4;
+                    }
+
+                    hr{
+                        height: 0px;
+                        border-bottom: 1px;
+                        background-color: #16195c;
+                        margin: 30px 0;
+                    }
+
+                    label{
+                        font-size: 13px;
+                    }
+
+                    label input{
+                        display: block;
+                        margin-top: 5px;
+                        margin-bottom: 15px;
+                        box-sizing: border-box;
+                        width: 100%;
+                        padding: 20px 10px;
+                        border: 2px solid #24cd89;
+                        border-radius: 10px;
+                        color: #FFF;
+                        outline: 0;
+                        font-size: 15px;
+                        background-color: #02044A;
+                    }
+
+                    button{
+                        background-color: #25cd89;
+                        color: #FFF;
+                        font-size: 14px;
+                        font-weight: bold;
+                        padding: 20px 40px;
+                        border: 0;
+                        border-radius: 30px;
+                        cursor: pointer;
+                        margin-top: 30px;
+                    }
+
+                    .input{
+                        display: block;
+                        margin-top: 5px;
+                        margin-bottom: 15px;
+                        box-sizing: border-box;
+                        width: 100%;
+                        padding: 20px 10px;
+                        border: 2px solid #24cd89;
+                        border-radius: 10px;
+                        color: #FFF;
+                        outline: 0;
+                        font-size: 15px;
+                        background-color: #02044A;
+
+                    }
+                    .inputdt{
+                        background: none;
+                        border:none;
+                        outline: none;
+                        color: #000;
+                        font-size: 15px;
+                        width: 100%;
+                        letter-spacing: 2px;
+                        outline: 0;
+                        filter: invert(100%);
+                    }
+
+                    input[list]{
+                        display: block;
+                        background: none;
+                        border:none;
+                        outline: none;
+                        color: #000;
+                        font-size: 15px;
+                        width: 100%;
+                        letter-spacing: 2px;
+                        outline: 0;
+                        filter: invert(100%);
+                    }
+
+                    footer {
+
+                        background-color: #14004d;
+                        color: white;
+                        padding: 50px;
+                        box-sizing: border-box;
+                        display: block;
+                        grid-template-columns: auto auto;
+                        align-items: center;
+                        text-align: center;
+                        border-top: 1px solid #16195C;
+                      }
+
+                      .nome{
+                        margin-right: 15px;
+                      }
+
+                      .footer_rede_social{
+                        text-align: center;
+                        padding: 15px;
+                      }
+
+                      .footer_rede_social a:visited{
+                        color: #ccc;
+                      }
+
+                      .footer_rede_social a:link{
+                        color: white;
+                        padding: 10px 12px;
+                        text-decoration: none;
+                        margin-bottom: 0;
+                        text-align: center;
+                      }
+
+                      /*sidebar*/
+                    .sidebarItem {
+                        margin: 30px 0;
+                        cursor: pointer;
+                    }
+                    .sidebarItem a{
+                            display: flex;
+                            align-items: center;
+                            text-decoration: none;
+                    }
+
+                    .info{
+                        flex: 1;
+                        margin-right: 20px;
+                    }
+
+                    .titulo{
+                        text-align: right;
+                        font-weight: bold;
+                        margin-bottom: 5px;
+                        font-size: 15px;
+                        color: #FFF;
+                    }
+
+                    .descricao{
+                        text-align: right;
+                        font-size: 13px;
+                        color: #B8B8D4;
+                    }
+
+                    .icone{
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 50%;
+                        background-color: #494A7C; /*se ativo '#25CD89'*/
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+
+                    img{
+                        /*fill: white;*/
+                        height:24px;
+                        width:24px;
+                    }
+
+                    .ponto{
+                        width: 6px;
+                        height: 6px;
+                        border: 3px solid #494A7C;
+                        border-radius: 50%;
+                        margin-left: 30px;
+                        margin-right: -6px;
+
+                    }
+
+    </style>
 </head>
 
 <body>
-    <div class="page">
-         <div class="header">
-            <a href="#menu"></a>
-         </div>
-         <div class="content">
-            <p><strong></strong><br />
-            </p>
-         </div>
-      </div>
-<!-- INÍCIO DO MENU SUPERIOR -->
-<!--<img src="/static/image/Logo banner 150.jpg" width="152" height="42" alt="">-->
-	<div>
-	<nav class="navbar navbar-expand-lg navbar-light fixed-top">
-		<div class="container px-4 px-lg-5">
-            <a class="navbar-brand mb-0 h1" href="{% url 'home' %}"><strong>COVID_19</a>
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#links-menu" style="background-color: white;">
-					<i class="material-icons">menu</i>
-				</button>
-			</div>
-			<nav id="links-menu" class="collapse navbar-collapse">
-				<ul class="nav navbar-nav navbar-right">
-					<li><a class="nav-link" href="{% url 'home' %}">Inicío<span class="sr-only">(current)</span></a></li>
-                    <li><a href="/relatorio/list">Listagem</a></li>
-                    <li><a href="/relatorio/novo">Novo</a></li>
-                    <li><a href="/relatorio/csv">Upload</a></li>
-				</ul>
-			</nav>
-		</div>
-	</nav>
-    </div>
-
-<!-- FIM DO MENU SUPERIOR -->
-
-        <div class="container">
-            <div class="content">
-                <p><strong></strong><br />
-                </p>
-             </div>
-            <p>
-
-            </p>
-            <p>
-
-            </p>
-            <p style="margin-top: 30px;"> Seja bem vindo! </p>
-
-
-
-<body>
     <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-		        <div class="col-md-12 text-center mb-5">
-                    <img src="/static/image/Mortes-por-Covid-no-Brasil-1 350.jpg">
-                </div>
-			</div>
+        <div class="area">
+            <header>
+                <h1>Cadastro de dados COVID-19 de Florianópolis</h1>
+                <p>Preencha o cadastro abaixo com os dados das notificações de casos de suspeitos de COVID-19 em Florianópolis</p>
+            </header>
+            <div class="steps">
+                <aside>
+                    <div class="sidebar">
+                        <div class="sidebarItem" ><a href="">
+                            <div class="info">
+                                <div class="titulo">Home</div>
+                                <div class="descricao">App COVID-19</div>
+                            </div>
+                            <div class="icone"><img src="/static/image/home-branco.png" /></div>
+                            <div class="ponto" background-color="#25CD89"></div>
+                        </a>
+                        </div>
+                        <div class="sidebarItem" ><a href="/relatorio/novo">
+                            <div class="info">
+                                <div class="titulo">Cadastrar</div>
+                                <div class="descricao">Realizar cadastro de notificação.</div>
+                            </div>
+                            <div class="icone"><img src="/static/image/cadastrar.png" /> </div>
+                            <div class="ponto" background-color="#25CD89"></div>
+                        </a>
+                        </div>
+                        <div class="sidebarItem" ><a href="/relatorio/list">
+                            <div class="info">
+                                <div class="titulo">Pesquisar</div>
+                                <div class="descricao">Realizar pesquisa das notificações.</div>
+                            </div>
+                            <div class="icone"><img src="/static/image/pesquisar.png" /></div>
+                            <div class="ponto"></div>
+                        </a>
+                        </div>
+                        <div class="sidebarItem" ><a href="/relatorio/csv">
+                            <div class="info">
+                                <div class="titulo">Upload</div>
+                                <div class="descricao">Realizar o upload de arquivo em csv.</div>
+                            </div>
+                            <div class="icone"><img src="/static/image/upload-fundo.png" /></div>
+                            <div class="ponto"></div>
+                        </a>
+                        </div>
+                    </div>
+                </aside>
+                <main>
+                    <h1>Aplicação Web: COVID-19</h1>
+                    <p>Desenvolvedores de softwares (DEVs) - Nível 3 (Edital 7/2021/PROEX - a)</p>
+
+                    <hr>
+
+                    <h3>Web App criado para a conclusão do curso de desenvolvimento de software realizado pela UFSC 2021</h3>
+                    <br>
+                    <p><strong>Aplicação onde pesquisadores da UFSC poderão obter informações sobre as notificações de casos suspeitos de COVID-19 em Florianópolis.</strong></p>
+
+                </main>
+            </div>
         </div>
+
     </div>
 </body>
-
-         </div>
-
-    <div class="navbar navbar-default navbar-fixed-bottom">
-        <div class="container">
-              <p class="navbar-text pull-right">© 2021 - Site Built By Marcos & Paiva.</p>
-        </div>
+<footer>
+    <div class="nome">
+        &copy; 2021 - Cléber Paiva
     </div>
-
-</body>
+    <div class="footer_rede_social">
+        <a href="https://www.linkedin.com/in/cl%C3%A9ber-paiva-48988016a/" target="_blank">
+            <i class="fab fa-linkedin fa-lg"></i>
+        </a>
+        <a href="https://api.whatsapp.com/send/?phone=5548984361437&text=Ol%C3%A1%2C+meu+amigo%21&app_absent=0" target="_blank">
+             <i class="fab fa-whatsapp fa-lg"></i>
+        </a>
+        <a href="https://github.com/CleberPaiva" target="_blank">
+            <i class="fab fa-github fa-lg"></i>
+        </a>
+    </div>
+    <div class="nome">
+        &copy; 2021 - Marcos Michel Luciano
+    </div>
+    <div class="footer_rede_social">
+        <a href="https://www.linkedin.com/in/marcosmichelluciano/" target="_blank">
+            <i class="fab fa-linkedin fa-lg"></i>
+        </a>
+        <a href="https://bit.ly/2ShS136" target="_blank">
+             <i class="fab fa-whatsapp fa-lg"></i>
+        </a>
+        <a href="https://github.com/michelluciano" target="_blank">
+            <i class="fab fa-github fa-lg"></i>
+        </a>
+    </div>
+</footer>
 </html>
-
-
-
-
-
-
