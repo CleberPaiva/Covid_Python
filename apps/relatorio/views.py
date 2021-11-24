@@ -73,4 +73,6 @@ def csv_upload(request):
             internado_uti=column[35]
         )
     context = {}
-    return render(request, 'relatorio/relatorio_list.html', context)
+    page = request.GET.get('page')
+    return render(request, 'relatorio/csv_upload.html', context)
+
